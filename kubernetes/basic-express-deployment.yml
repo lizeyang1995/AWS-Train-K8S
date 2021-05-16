@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-express
+  labels:
+    app: basic-express
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: basic-express
+  template:
+    metadata:
+      labels:
+        app: basic-express
+    spec:
+      containers:
+      - name: basic-express
+        image: basic-express:1.0
+        ports:
+        - containerPort: 80
